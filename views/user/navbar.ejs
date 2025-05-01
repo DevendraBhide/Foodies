@@ -1,0 +1,61 @@
+
+<nav class="navbar navbar-expand-lg text-white bg-dark">
+    <div class="container">
+      <a class="navbar-brand text-white" href="/"><img width="150px" src="logo.png" alt="logo"></a>
+      <button
+        class="navbar-toggler text-dark"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon bg-white border rounded"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav container d-flex">
+          <div class="mx-auto">
+            <li class="nav-item center d-inline-block">
+              <a
+                class="nav-link text-white active " 
+                aria-current="page"
+                href="/"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item d-inline-block ">
+              <a class="nav-link text-white" href="/#about">About</a>
+            </li>
+          </div>
+          <li class="nav-item d-inline-block">
+            <a class="nav-link text-white" href="/carts">
+              <i class="bi bi-bag"></i></a>
+          </li>
+          <li class="nav-item d-inline-block">
+            <a class="nav-link text-white" href="/signup">signup</a>
+          </li>
+       
+            <li class="nav-item d-inline-block">
+                <!-- <a class="nav-link text-white" href="/login">Login</a> -->
+                <div class="dropdown">
+                  <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Login
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/login">user login</a></li>
+                    <li><a class="dropdown-item" href="/admin/admin_login">admin login</a></li>
+                   </ul>
+                </div>
+              </li>
+      
+            <!-- <li class="nav-item d-inline-block">
+                <a class="nav-link text-white" href="/logout">Logout</a>
+              </li> -->
+         
+         
+        
+        </ul>
+      </div>
+    </div>
+  </nav>

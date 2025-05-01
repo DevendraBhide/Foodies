@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <%-include('../cdn.ejs')%>
+</head>
+<body>
+  <%-include('navbar.ejs')%>
+<div class="container-fluid">
+    <div class="container my-3">
+        <form class="bg-dark text-white w-75 m-auto p-3" action="/saveform" method="post">
+            <h3 class="text-center bg-warning p-2">Sign Up</h3>
+            
+           
+            <label for="">Enter Your Name</label>
+            <input type="text" placeholder="Enter Your Name" name="username" class="form-control" required>
+            <br>
+            <label for="">Enter Your Email</label>
+            <input type="text" placeholder="Enter Your Email" name="useremail" class="form-control" required>
+            <br>
+            <label for="">Enter Your Password</label>
+            <input type="text" placeholder="Enter Your Password" name="userpass" class="form-control" required>
+            <br>
+            <label for="">Enter Your Mobile</label>
+            <input type="text" placeholder="Enter Your Mobile" name="usermobile" class="form-control" required>
+            <br>
+            <div class="text-center"> 
+                 <button class="btn btn-sm btn-outline-warning">sign Up</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

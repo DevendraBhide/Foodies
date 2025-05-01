@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DRINKS</title>
+    <%-include('../cdn.ejs')%>
+  </head>
+  <body>
+    <%-include('navbar.ejs')%> <%-include('menu_nav.ejs')%>
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <%data.map((val,index)=>{ %>
+          <div class="col-md-4">
+            <div class="cards bg-light p-3">
+              <h4 class="text-center"><%=val.p_name%></h4>
+              <p class="text-center"><%=val.p_description%></p>
+              <h4 class="text-center">&#8377; <%=val.p_price%></h4>
+              <div class="text-center">
+                <img
+                  class="img-fluid border rounded-circle"
+                  width="140px"
+                  src=<%=val.p_image%>
+                />
+                alt="">
+              </div>
+              <br />
+              <div class="text-center">
+                <a href="/cart/<%=val.p_id%>" class="btn bg-warning text-light fw-bold me-3">Add to Cart</a>
+                <a href="/buy/<%=val.p_id%>" class="btn text-white bg-info fw-bold">Buy Item</a>
+              </div>
+            </div>
+          </div>
+          <% })%>
+        </div>
+      </div>
+    </div>
+    <%-include("footer.ejs")%>
+  </body>
+</html>

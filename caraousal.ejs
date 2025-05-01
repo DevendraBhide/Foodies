@@ -1,0 +1,236 @@
+<style>
+    .carousel-container {
+      width: 70%;
+      margin: auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-wrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
+    }
+
+    .card {
+      width: 15rem;
+      background: linear-gradient(to bottom, #353f4f, #000000) !important;
+      margin: 0 10px;
+      flex: 0 0 auto;
+      color: white;
+      border-radius: 0px !important;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .carousel-controls button {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+  </style>
+
+
+<div class="carousel-container">
+    <div class="carousel-wrapper">
+      <!-- Duplicate first 3 cards for infinite loop effect -->
+      <div class="card">
+        <img
+          src="pizza.png"
+          width="90px"
+          height="auto"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Small Concrete Sausages</h5>
+          <p class="card-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+            cumque, iste odio culpa adipisci sit..
+          </p>
+        </div>
+        <div class="card-footer">
+            <a href="/cart">  <button class="btn text-white">Add to Cart</button></a>
+             <a href="/buy"> <button class="btn text-white">Buy Now</button></a>
+            </div>
+      </div>
+      <div class="card">
+        <img src="pizza.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Generic Fresh Tuna</h5>
+          <p class="card-text">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Asperiores rerum libero impedit ad assumenda eveniet?.
+          </p>
+        </div>
+        <div class="card-footer">
+        <a href="/cart">  <button class="btn text-white">Add to Cart</button></a>
+         <a href="/buy"> <button class="btn text-white">Buy Now</button></a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="pizza.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Extra Delicious pizza</h5>
+          <p class="card-text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Nesciunt magni optio dolor dicta quo voluptate?.
+          </p>
+        </div>
+        <div class="card-footer">
+            <a href="/cart">  <button class="btn text-white">Add to Cart</button></a>
+             <a href="/buy"> <button class="btn text-white">Buy Now</button></a>
+            </div>
+      </div>
+      <div class="card">
+        <img src="pizza.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Card 4</h5>
+          <p class="card-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+            illo vel voluptatibus totam molestias velit?.
+          </p>
+        </div>
+        <div class="card-footer">
+            <a href="/cart">  <button class="btn text-white">Add to Cart</button></a>
+             <a href="/buy"> <button class="btn text-white">Buy Now</button></a>
+            </div>
+      </div>
+      <div class="card">
+        <img src="pizza.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Card 5</h5>
+          <p class="card-text">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi
+            aperiam quisquam deleniti delectus esse sed..
+          </p>
+        </div>
+        <div class="card-footer">
+            <a href="/cart">  <button class="btn text-white">Add to Cart</button></a>
+             <a href="/buy"> <button class="btn text-white">Buy Now</button></a>
+            </div>
+      </div>
+      <div class="card">
+        <img src="pizza.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Card 6</h5>
+          <p class="card-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Asperiores laboriosam odio repellat ad eum animi..
+          </p>
+        </div>
+        <div class="card-footer">
+            <a href="/cart">  <button class="btn text-white">Add to Cart</button></a>
+             <a href="/buy"> <button class="btn text-white">Buy Now</button></a>
+            </div>
+      </div>
+      <!-- Duplicate first 3 cards for smooth infinite loop -->
+      <div class="card">
+        <img src="pizza.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Card 1</h5>
+          <p class="card-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Necessitatibus velit, ducimus amet perferendis dolorem eos..
+          </p>
+        </div>
+        <div class="card-footer">
+            <a href="/cart">  <button class="btn text-white">Add to Cart</button></a>
+             <a href="/buy"> <button class="btn text-white">Buy Now</button></a>
+            </div>
+      </div>
+      <div class="card">
+        <img src="pizza.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Card 2</h5>
+          <p class="card-text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Adipisci qui vel quibusdam earum unde nobis?.
+          </p>
+        </div>
+        <div class="card-footer">
+            <a href="/cart">  <button class="btn text-white">Add to Cart</button></a>
+             <a href="/buy"> <button class="btn text-white">Buy Now</button></a>
+            </div>
+      </div>
+      <div class="card">
+        <img src="pizza.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Card 3</h5>
+          <p class="card-text">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Debitis, nulla adipisci totam vel voluptates fugiat..
+          </p>
+        </div>
+        <div class="card-footer">
+            <a href="/cart">  <button class="btn text-white">Add to Cart</button></a>
+             <a href="/buy"> <button class="btn text-white">Buy Now</button></a>
+            </div>
+      </div>
+    </div>
+
+    <div class="carousel-controls">
+      <button id="prevBtn">&#10094;</button>
+      <button id="nextBtn">&#10095;</button>
+    </div>
+  </div>
+
+  <script>
+    const wrapper = document.querySelector(".carousel-wrapper");
+    const cards = document.querySelectorAll(".card");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    let currentIndex = 0;
+    let cardWidth = cards[0].offsetWidth + 20; // Including margin
+    let visibleCards = 3;
+    let totalCards = cards.length;
+
+    function updateCarousel() {
+      wrapper.style.transition = "transform 0.5s ease-in-out";
+      wrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+      // When reaching the end, reset position
+      setTimeout(() => {
+        if (currentIndex >= totalCards - visibleCards) {
+          wrapper.style.transition = "none"; // Remove transition for seamless loop
+          currentIndex = 0;
+          wrapper.style.transform = `translateX(-${
+            currentIndex * cardWidth
+          }px)`;
+        }
+      }, 500);
+    }
+
+    nextBtn.addEventListener("click", () => {
+      if (currentIndex < totalCards - visibleCards) {
+        currentIndex++;
+      } else {
+        currentIndex = 0; // Reset for infinite loop
+      }
+      updateCarousel();
+    });
+
+    prevBtn.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = totalCards - visibleCards - 1; // Move to last card
+      }
+      updateCarousel();
+    });
+
+    // Auto-slide every 3 seconds
+    setInterval(() => {
+      nextBtn.click();
+    }, 5000);
+  </script>

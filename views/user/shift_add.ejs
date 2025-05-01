@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address</title>
+    <%-include('../cdn.ejs')%>
+</head>
+<body>
+    <%-include('navbar.ejs')%>
+    <div class="container-fluid">
+        <div class="container p-3">
+            <h4 class="text-center">Enter Your Shifting Address</h4>
+            <hr>
+            <form action="#payment">
+                <div class="row ">
+                    <div class="col-md-6 ">
+                        <label for="">House No</label>
+                        <input type="text" placeholder="Enter House No" class="form-control mb-2" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Street/Road</label>
+                        <input type="text" placeholder="Enter Street/Road" class="form-control mb-2" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="">Area/Locality/Colony</label>
+                        <input type="text" placeholder="Enter Area/Locality/Colony" class="form-control mb-2" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">City/Town</label>
+                        <input type="text" placeholder="EnterCity/Town" class="form-control mb-2" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">District</label>
+                        <input type="text" placeholder="Enter District" class="form-control mb-2" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="">Pincode</label>
+                        <input type="number" placeholder="Enter Pincode " class="form-control mb-2" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="">landmark</label>
+                        <input type="text" placeholder="Enter landmark " class="form-control mb-2" required>
+                    </div>
+                </div>
+                
+                <div class="text-end"><button type="submit" class="btn bg-dark text-light">Next-></button></div>
+            </form>
+        </div>
+    </div>
+    <br><br>
+    <hr>
+    <div class="container-fluid ">
+        <div class="container" id='payment'>
+            <h3 class="text-center pt-4">Enter Your Card Detail for Payment</h3>
+            <hr class="border border-dark"><br>
+           <form onsubmit="event.preventDefault(); showPaymentModal();">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="">Enter Card No</label>
+                    <input type="number" placeholder="Enter card no" class="form-control border border-dark" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="">CVV</label>
+                    <input type="number" placeholder="Enter card cvv" class="form-control border border-dark" required>
+                </div>
+                <div class="text-center my-4">
+                    <button type="submit" class="btn btn-dark"   >
+                        Proceed to Pay
+                      </button>
+                </div>
+            </div>
+           </form>
+        </div>
+        <div class="container mt-3 border border-warning rounded p-3">
+            <% data.map((val,index)=>{  %>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="/<%=val.p_image%>" alt="" class="img-fluid" width="200px">
+                    </div>
+                    <div class="col-md-4">
+                        <h6><%=val.p_name%></h6>
+                        <p><%=val.p_description%></p>
+                       
+                    </div>
+                    <div class="col-md-4">
+                        <p>&#8377; <%=val.p_price%></p>                        
+                         <!-- <button type="submit" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Proceed to Pay
+                          </button> -->
+                        
+                    </div>
+                </div>
+                <%    })%>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+          <div class="modal-content bg-warning">
+            <!-- <div class="modal-header">
+              
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div> -->
+            <div class="modal-body p-3">
+             <h5 class="text-center text-light">Payment Successfull!!!</h5>
+             <p class="text-center text-light">Your order is Placed!</p>
+            </div>
+           
+              <a href="/" class="text-center"><button type="button" class="btn bg-light text-warning mb-2" data-bs-dismiss="modal">Continue Shopping...</button></a>
+             
+          </div>
+        </div>
+      </div>
+    <%-include('footer.ejs')%>
+    <script>
+        function showPaymentModal() {
+          const myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+          myModal.show();
+        }
+      </script>
+</body>
+</html>

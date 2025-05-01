@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <%-include('../cdn.ejs')%>
+</head>
+<body>
+  <%-include('navbar.ejs')%>
+
+      <div class="container-fluid">
+        <div class="container my-3">
+            <form class="bg-dark text-white w-75 m-auto p-3" action="/logindata" method="post">
+                <h3 class="text-center bg-warning p-2">Login</h3>
+                
+               
+                <input type="text" name="id" hidden>
+                <label for="">Enter Your Email</label>
+                <input type="email" placeholder="Enter Your Email" name="useremail" class="form-control">
+                <br>
+                <label for="">Enter Your Password</label>
+                <input type="text" placeholder="Enter Your Password" name="userpass" class="form-control">
+                <br>
+                
+                <div class="text-center"> 
+                     <button class="btn btn-sm btn-outline-warning">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

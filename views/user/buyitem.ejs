@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy item</title>
+    <%-include('../cdn.ejs')%>
+</head>
+<body>
+    <%-include('navbar.ejs')%>
+    <div class="container-fluid p-3 ">
+        <% data.map((val,index)=>{ %>
+            <div class="container p-3">
+                <div class="row">
+                    <div class="col-md-4">
+                         <img src='/<%=val.p_image%>' alt="product_image" class="img-fluid">
+
+                    </div>
+                    <div class="col-md-8">
+                        <h3><%=val.p_name%></h3>
+                        <p><%=val.p_description%></p>
+                        <h4>&#8377; <%=val.p_price%> &nbsp; <del class="text-danger">&#8377; 250</del></h4>
+                        <p>20% discount</p>
+                        <a href="/cart/<%=val.p_id%>" class="btn btn-outline-warning me-5">Add To Cart</a>
+                        <a href="/buying/<%=val.p_id%>" class="btn btn-outline-info">Buy Now</a>
+                        <p>Free delivery applicable on items beyond &#8377;499</p>
+                    </div>
+                </div>
+            </div>
+   <%     })%>
+        
+    </div>
+    <%-include('footer.ejs')%>
+</body>
+</html>

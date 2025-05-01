@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <%-include("../cdn.ejs")%>
+</head>
+<body>
+    <%-include('navbar.ejs')%>
+    <div class="container-fluid">
+         
+
+        <div class="container border rounded my-3">
+            <h4 class="text-center bg-dark text-warning p-3 my-3 border rounded"> CARD DATA</h4>
+            <form action="/admin/editcarddata" method="post" enctype="multipart/form-data">
+
+                <input type="text" name="p_id" value="<%=data.p_id%>" class="form-control" readonly>
+
+                <label for="" class="my-2">Enter Name </label>
+                <input type="text" name="p_name" id="p_name" value="<%=data.p_name%>" placeholder="Enter Name" class="form-control mb-3">
+
+                <label for="" class="my-2">Enter Price </label>
+                <input type="text" name="p_price" id="p_price" value="<%=data.p_price%>" placeholder="Enter Product Price" class="form-control mb-3">                
+
+                <label for="" class="my-2">Enter Description </label>
+                <input type="text" name="p_description" id="p_description" value='<%=data.p_description%>' placeholder="Enter Description" class=" mb-3 form-control">
+
+                <label for="">Choose Category</label>
+                <select name="p_category" id="p_category" class="form-control">
+                    <option value="select">_SELECT_</option>
+                    <option value="Carousel"<%-(data.p_category=='Carousel')? 'selected':''%>>Carousel</option>
+                    <option value="Lunch"<%-(data.p_category=='Lunch')? 'selected':''%>>Lunch</option>
+                    <option value="Drinks"<%-(data.p_category=='Drinks')? 'selected':''%>>Drinks</option>
+                    <option value="Breakfast"<%-(data.p_category=='Breakfast')? 'selected':''%>>Breakfast</option>
+                    <option value="Dinner"<%-(data.p_category=='Dinner')? 'selected':''%>>Dinner</option>
+
+                </select>
+
+                <label for="" class="my-2">Upload image </label>
+                <input type="file" name="p_image" id="p_image" placeholder="upload image" class="form-control  mb-3">
+                <div class="text-center"><img src="/<%=data.p_image%>" alt="" height="150px"></div>
+               <div class="text-center"> <button class="btn btn-sm fw-bold bg-dark text-warning px-3 my-3">Update</button></div>
+            </form>
+        </div>
+    </div>
+ </body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <%-include('../cdn.ejs')%>
+    <style>
+      .carousel-container {
+        width: 70%;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .carousel-wrapper {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        will-change: transform;
+      }
+
+      .card {
+        width: 15rem;
+        background: linear-gradient(to bottom, #353f4f, #000000) !important;
+        margin: 0 10px;
+        flex: 0 0 auto;
+        color: white;
+        border-radius: 0px !important;
+      }
+
+      .carousel-controls {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+      }
+
+      .carousel-controls button {
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+   <%-include('navbar.ejs')%>
+    <div class="container-fluid bg-dark">
+      <div class="container p-3 ps-5">
+        <div class="row ps-5">
+          <div class="col-12 p-5 ps-5">
+            <div class="row">
+              <div class="col-md-5 ps-5">
+                <h5 class="text-white mb-4">
+                  Food ordering Made <br />
+                  Easy
+                </h5>
+                <p class="text-danger">Get Started Today!</p>
+                <button
+                  class="btn btn-sm text-white fw-bold bg-warning border rounded me-2"
+                >
+                  Order now
+                </button>
+                <span
+                  ><a class="text-white text-decoration-none" href="/lunch"
+                    >see menu</a
+                  ></span
+                >
+              </div>
+              <div class="col-md-6">
+                <img
+                  class=" img-fluid"
+                  src="pizza.png"
+                  width="400px"
+                  height="400px"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-container">
+        <div class="carousel-wrapper">    
+         
+<% data.map((val,index)=>{ %>
+          <div class="card">
+            <img
+              src=<%=val.p_image%>
+              width="90px"
+              height="auto"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <input type="text" name="p_id" value="<%=val.p_id%>" hidden>
+              <h5 class="card-title"><%=val.p_name%></h5>
+              <h6>&#8377; <%=val.p_price%></h6>
+              <p class="card-text">
+                <%=val.p_description%>
+              </p>
+            </div>
+            <div class="card-footer">
+                <a href="/cart/<%=val.p_id%>"> <button class="Add-to-cart btn text-white">Add to Cart</button></a>
+                 <a href="/buy/<%=val.p_id%>"> <button class="btn text-white">Buy Item</button></a>
+                </div>
+          </div>
+<% })%>
+ 
+ 
+
+
+         
+        </div>
+
+        <div class="carousel-controls">
+          <button id="prevBtn">&#10094;</button>
+          <button id="nextBtn">&#10095;</button>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="container-fluid">
+      <div class="container p-3" id="about">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>About Us</h5>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+              obcaecati asperiores sequi quam sint dignissimos minus
+              necessitatibus tempora sapiente, dolorum expedita culpa quasi
+              omnis debitis error itaque nam mollitia fugiat ipsam eligendi? At
+              delectus repellat enim quis quod ea nemo quisquam nobis illum
+              deleniti exercitationem accusamus nostrum explicabo quaerat
+              tempora, officiis dolores laborum ipsum, sit vitae repudiandae
+              porro eum placeat! Magnam cumque, cum aliquid accusamus quae
+              facere autem numquam voluptate laborum tempora sed explicabo
+              similique non nihil, ut perferendis, nisi corrupti. Quam ut harum
+              aperiam! Omnis architecto ipsam perspiciatis amet eos, quae,
+              eligendi vero similique quod ut cumque voluptate vitae.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <img src="resto.jpg" class="img-fluid" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const wrapper = document.querySelector(".carousel-wrapper");
+      const cards = document.querySelectorAll(".card");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      let currentIndex = 0;
+      let cardWidth = cards[0].offsetWidth + 20; // Including margin
+      let visibleCards = 3;
+      let totalCards = cards.length;
+
+      function updateCarousel() {
+        wrapper.style.transition = "transform 0.5s ease-in-out";
+        wrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+        // When reaching the end, reset position
+        setTimeout(() => {
+          if (currentIndex >= totalCards - visibleCards) {
+            wrapper.style.transition = "none"; // Remove transition for seamless loop
+            currentIndex = 0;
+            wrapper.style.transform = `translateX(-${
+              currentIndex * cardWidth
+            }px)`;
+          }
+        }, 500);
+      }
+
+      nextBtn.addEventListener("click", () => {
+        if (currentIndex < totalCards - visibleCards) {
+          currentIndex++;
+        } else {
+          currentIndex = 0; // Reset for infinite loop
+        }
+        updateCarousel();
+      });
+
+      prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+        } else {
+          currentIndex = totalCards - visibleCards - 1; // Move to last card
+        }
+        updateCarousel();
+      });
+
+      // Auto-slide every 3 seconds
+      setInterval(() => {
+        nextBtn.click();
+      }, 5000);
+
+      //************************************************************
+       
+      
+    </script>
+    <%-include("footer.ejs")%>
+  </body>
+</html>

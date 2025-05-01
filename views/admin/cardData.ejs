@@ -1,0 +1,44 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Data</title>
+    <%-include("../cdn.ejs")%>
+ </head>
+ <body>
+    <%-include('navbar.ejs')%>
+     <div class="container-fluid">
+        <div class="container">
+            <h4 class="text-center my-3">Card Data</h4>
+            <table class="table-bordered text-center">
+                <tr>
+                    <th>sr no</th>
+                    <th>Name</th>
+                    <th>Product Id</th>
+                    <th>desription</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>image</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            <%    data.map((val,index)=>{ %>
+                <tr>
+                    <td><%=index+1%></td>
+                    <td><%=val.p_name%></td>
+                    <td><%=val.p_id%></td>
+                    <td><%=val.p_description%></td>
+                    <td><%=val.p_price%></td>
+                    <td><%=val.p_category%></td>
+                    <td><img height="100px" src="<%=val.p_image%>" alt=""><br><%=val.p_image%></td>
+                    <td><a href="/admin/edit/<%=val.p_id%>"><div class="bi bi-pencil fw-bold text-info"></div></a></td>
+                    <td><a href="/admin/delete/<%=val.p_id%>"><div class="bi bi-trash fw-bold text-danger" ></div></a></div></td>
+                </tr>
+             <%   }) %>
+               
+            </table>
+        </div>
+     </div>
+ </body>
+ </html>
