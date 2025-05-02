@@ -12,7 +12,7 @@ app.use(express.static('public/'))
  var adminRoute=require("./routes/adminroute")
  app.use('/admin',adminRoute)
  
-const port=process.env.port || 3001;
+const port=process.env.PORT || 3001;
 app.listen(port,()=>{
     console.log(`server run at http://localhost:${port}`)
 })
